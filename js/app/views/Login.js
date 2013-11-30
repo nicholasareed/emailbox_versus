@@ -67,6 +67,12 @@ define(function (require) {
 				var ref = window.open(call_url, '_blank', 'location=yes');
 				var x = console;
 				ref.addEventListener('loadstart', function(event) { 
+					alert('loadstop');
+				});
+				ref.addEventListener('loaderror', function(event) { 
+					alert('loaderror');
+				});
+				ref.addEventListener('loadstart', function(event) { 
 					// event.url;
 					alert('loadstart');
 					var tmp_url = event.url;
