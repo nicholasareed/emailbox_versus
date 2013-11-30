@@ -80,6 +80,7 @@ define(function (require) {
 
 						// url-decode
 						// alert(tmp_url);
+						alert('found it');
 						var url = decodeURIComponent(tmp_url);
 						// alert(url);
 
@@ -118,7 +119,7 @@ define(function (require) {
 
 									// // Reload page, back to #home
 									// window.location = [location.protocol, '//', location.host, location.pathname].join('');
-
+									alert('loading');
 									$('body').html('Loading');
 
 									// Reload page, back to #home
