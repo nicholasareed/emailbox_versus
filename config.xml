@@ -25,5 +25,7 @@
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
 
+    <icon src="icon.png" />
+
 
 </widget>
