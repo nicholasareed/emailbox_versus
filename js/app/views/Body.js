@@ -41,12 +41,8 @@ define(function (require) {
 
         events: {
             'click .signout-button' : 'logout',
-            'click .challenge-button' : 'challenge'
-        },
-
-        values_refreshed: function(){
-            // Update the speedometer values for each person
-            // - this was triggered by a model update I guess?
+            'click .challenge-button' : 'challenge',
+            'click .trigger-refresh' : 'refresh_data'
         },
 
         render: function (first_time) {
@@ -85,6 +81,11 @@ define(function (require) {
 
 
             return this;
+        },
+
+        refresh_data: function(ev){
+            this.collection.remoteCount();
+            return false;
         },
 
         logout: function(ev){
