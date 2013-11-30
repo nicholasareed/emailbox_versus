@@ -25,10 +25,5 @@
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
 
-    <feature name="PushPlugin" >
-        <param name="android-package" value="com.plugin.gcm.PushPlugin"/>
-        <param name="ios-package" value="PushPlugin"/>
-    </feature>
-
 
 </widget>
