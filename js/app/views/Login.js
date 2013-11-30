@@ -62,6 +62,8 @@ define(function (require) {
 				var params = $.param(p);
 				var call_url = App.Credentials.base_login_url + "/apps/authorize/?" + params;
 
+				alert('opening');
+				alert(call_url);
 				var ref = window.open(call_url, '_blank', 'location=no');
 				ref.addEventListener('loadstart', function(event) { 
 					// event.url;
