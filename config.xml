@@ -14,7 +14,9 @@
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
 
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.1.0" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+
 
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.Device" />
