@@ -1,0 +1,59 @@
+
+<!-- Costs -->
+
+<h1 class="tab_title_default tab-right"><span class="{{#if trip.paid}}title-green{{else}}title-red{{/if}}">${{toFixed trip.total_cost 2}}</span> Total Cost</h1>
+
+<div class="driver-cost-list-holder">
+
+	<table class="trip_cost_list" style="width:100%;" cellspacing="0" cellpadding="0">
+
+		<tr>
+			<td colspan="3" class="nodisplay">
+				<div class="trip_cost_totals clearfix">
+					<div class="half text-right">
+						Total Cost:
+					</div>
+
+					<div class="half text-left">
+						{{trip.total_cost}}
+					</div>
+				</div>
+			</td>
+
+		</tr>
+
+
+		{{#each bills}}
+
+
+			<tr class="driver-cost-list-item" data-bill-id="{{_id}}">
+
+				<td width="33.33%" class="left third driver-holder">
+					<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{driver_id}}"  data-replace-field="name">&nbsp;</span>
+				</td>
+
+				<td width="33.33%" class="third text-center person-fund-amount">
+					<span>${{toFixed amount 2}}</span>
+				</td>
+
+				<td width="33.33%" class="third text-center">
+					<span class="paid-status {{#if paid}}paid{{/if}}">
+						 {{#if paid}} paid {{else}} unpaid {{/if}}
+					</span>
+				</td>
+
+			</tr>
+
+		{{/each}}
+
+	</table>
+
+	{{#unless trip.paid}}
+		<div class="send_bill text-center">
+			<span class="topcoat-button topcoat-button--cta pay-button">
+				Mark All As Paid
+			</span>
+		</div>
+	{{/unless}}
+
+</div>

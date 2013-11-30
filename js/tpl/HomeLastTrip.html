@@ -1,0 +1,159 @@
+
+{{#if trip}}
+
+	<div class="quicklink" href="trip/{{trip._id}}">
+		<div class="trip_in_progress">
+
+			<div class="trip_top_holder">
+
+				<div class="small_desc">
+					{{#if trip.end_time}}
+						<span class="is_last">Last</span> Trip
+						<br />
+						<span class="last_trip_ago">{{display_fromNow trip.end_time}}</span>
+					{{else}}
+						<span class="is_current">Current</span> Trip
+					{{/if}}
+				</div>
+
+				<div class="last_trip_top clearfix">
+					<div class="third">
+
+						<div class="quick_trip_numbers">
+							<div class="trip_datapoint">
+								{{toFixedOrNone trip.miles 1}}
+							</div>
+							<div class="trip_datapoint_label">
+								miles in trip
+							</div>
+						</div>
+
+					</div>
+					<div class="third">
+						
+						<div class="quick_trip_numbers">
+							<div class="trip_datapoint">
+								<span class="monetary">$</span>{{toFixed trip.total_cost 2}}
+							</div>
+							<div class="trip_datapoint_label">
+								total cost
+							</div>
+						</div>
+
+					</div>
+					<div class="third">
+						<!--
+						<div class="driver_name">
+							<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{trip.driver_id}}"  data-replace-field="name">
+								&nbsp;
+							</span>
+						</div>
+						-->
+
+						<!--
+						<div class="driver_change_holder">
+							<span class="topcoat-button topcoat-button--cta change_driver">Change Driver</span>
+						</div>
+
+						<p class="toggle-fueled" data-fueled-up="{{#compare_length trip.fuel ">" 0}}1{{/compare_length}}">
+							Fueled Up <span>(95%)</span>
+						</p>
+						-->
+
+						<div class="quick_trip_numbers">
+							<div class="trip_datapoint">
+								<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{trip.driver_id}}"  data-replace-field="name">
+									&nbsp;
+								</span>
+							</div>
+							<div class="trip_datapoint_label">
+								Driver
+							</div>
+						</div>
+
+					</div>
+					<!--
+					<div class="half">
+						<div class="driver_name">
+							<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{trip.driver_id}}"  data-replace-field="name">
+								&nbsp;
+							</span>
+						</div>
+
+						<div class="driver_change_holder">
+							<span class="topcoat-button topcoat-button--cta change_driver">Change Driver</span>
+						</div>
+
+						<p class="toggle-fueled" data-fueled-up="{{#compare_length trip.fuel ">" 0}}1{{/compare_length}}">
+							Fueled Up <span>(95%)</span>
+						</p>
+					</div>
+					<div class="half">
+						
+						<div class="quick_trip_numbers">
+							<div class="trip_datapoint">
+								{{toFixedOrNone trip.miles 1}}
+							</div>
+							<div class="trip_datapoint_label">
+								miles in trip
+							</div>
+						</div>
+						<div class="quick_trip_numbers">
+							<div class="trip_datapoint">
+								<span class="monetary">$</span>{{toFixed trip.total_cost 2}}
+							</div>
+							<div class="trip_datapoint_label">
+								total cost
+							</div>
+						</div>
+
+					</div>
+					-->
+				</div>
+
+				<!--
+				<div class="small_desc smaller_desc">
+					Tap to View Trip
+				</div>
+
+			-->
+
+			</div>
+
+			<!--
+			<div class="last_trip_bottom clearfix">
+
+				<span class="topcoat-button topcoat-button--cta quicklink" href="#driverselect">Change Trip Driver</span>
+
+			</div>
+			-->
+
+		</div>
+
+	</div>
+{{else}}
+	
+	<div class="quicklink" href="trip/{{trip._id}}">
+		<div class="trip_in_progress">
+
+			<div class="small_desc">
+				Last / Current Trip:
+			</div>
+
+			<div class="last_trip_top clearfix">
+				<div class="default-empty-list">
+					Loading latest trip...
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+{{/if}}
+

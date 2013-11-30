@@ -1,0 +1,48 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Drivers</h1>
+    </div>
+	<div class="topcoat-navigation-bar__item right quarter">
+        <span class="topcoat-icon-button--quiet add-driver" href="#">
+			<i class="icon ion-ios7-plus-outline"></i>
+		</span>
+	</div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+	<!-- List of items  -->
+	<ul class="topcoat-list list error-codes-list">
+	
+		{{#each drivers}}
+			<li class="topcoat-list__item quicklink" href="#driver/edit/{{_id}}">
+				
+				<p class="driver-list-item">
+					{{name}}
+				</p>
+				<p>
+					{{#if email}}
+						{{email}}
+					{{else}}
+						&nbsp;
+					{{/if}}
+				</p>
+				<span class="chevron"></span>
+			
+			</li>
+		{{/each}}
+	
+	</ul>
+
+
+	{{#compare_length drivers "==" 0}}
+		<div class="default-empty-list">
+			No drivers to show!
+		</div>
+	{{/compare_length}}
+
+</div>

@@ -1,0 +1,254 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+	<div class="topcoat-navigation-bar__item left three-quarters">
+		<h1 class="topcoat-navigation-bar__title ellipsis">Trip Details</h1>
+	</div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+	<div class="view_trip">
+		<div class="trip_in_progress">
+
+			<div class="driver_and_car clearfix">
+				<!--
+				<div class="third text-center">
+					<div class="image" style="background-image: url('img/me_eating_chicken.jpg');">
+					</div>
+				</div>
+				-->
+				<div class="half">
+					<div class="title_small">Vehicle</div>
+					<h1 class="is_name" data-replace-model="car"  data-replace-id="{{trip.car_id}}"  data-replace-field="name">
+						&nbsp;
+					</h1>
+
+					<!--
+					<div class="car_name">
+						<span class="ellipsis">
+							<strong>99 Pathfinder</strong>
+						</span>
+					</div>
+
+					<br />
+					-->
+
+				</div>
+
+				<div class="half">
+					<div class="title_small">Driver</div>
+					<div class="driver_change">
+						<h2 class="ellipsis driver_name" data-replace-model="driver"  data-replace-id="{{trip.driver_id}}"  data-replace-field="name">
+							&nbsp;
+						</h2>
+
+						<div class="passengers_holder">
+							<div class="passengers_button">
+								<i class="icon ion-ios7-people"></i><span>{{length trip.riders -1}}</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="half nodisplay">
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-{{#compare trip.end_time "==" null}}on{{else}}off{{/compare}} text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Trip In Progress
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							Trip Ended
+						</div>
+
+					</div>
+
+
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-{{#if trip.fueled_up}}on{{else}}off{{/if}} text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Fueled Up
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							No Fuel Up
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+			<!-- Trip summary (time, trip in progress, etc.) -->
+			<!--
+			<div class="trip_overview clearfix">
+
+				<div class="half">
+
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-off text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Trip In Progress
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							Trip Ended
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="half">
+
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-on text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Fueled Up
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							No Fuel Up
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			-->
+			<!--
+			<div class="trip-button-bar">
+				<div class="topcoat-button-bar">
+				  <div class="topcoat-button-bar__item">
+				    <button class="topcoat-button-bar__button active" data-tab-target="tab-details">
+				    	<i class="icon ion-ios7-information-outline"></i>
+				    </button>
+				  </div>
+				  <div class="topcoat-button-bar__item">
+				    <button class="topcoat-button-bar__button map-show-button" data-tab-target="tab-map">
+				    	<i class="icon ion-map"></i>
+				    </button>
+				  </div>
+				  <div class="topcoat-button-bar__item">
+				    <button class="topcoat-button-bar__button" data-tab-target="tab-legs">
+				    	<i class="icon ion-pause"></i>
+				    </button>
+				  </div>
+				  <div class="topcoat-button-bar__item">
+				    <button class="topcoat-button-bar__button" data-tab-target="tab-costs">
+				    	<i class="icon ion-card"></i>
+				    </button>
+				  </div>
+				</div>
+			</div>
+		-->
+
+
+			<div class="normal-tab-button-bar clearfix">
+			  <div class="even-list-item quarter">
+			    <button class="active" data-tab-target="tab-details">
+			    	<i class="icon ion-ios7-information-outline"></i><!-- <span>Details</span>-->
+			    </button>
+			  </div>
+			  <div class="even-list-item quarter">
+			    <button class="" data-tab-target="tab-map">
+			    	<i class="icon ion-map"></i><!-- <span>Map</span>-->
+			    </button>
+			  </div>
+			  <div class="even-list-item quarter">
+			    <button class="" data-tab-target="tab-legs">
+			    	<i class="icon ion-pause"></i><!-- <span>Legs</span>-->
+			    </button>
+			  </div>
+			  <div class="even-list-item quarter">
+			    <button class="" data-tab-target="tab-costs">
+			    	<i class="icon ion-card card-billed-{{trip.billed}} card-paid-{{trip.paid}}"></i>
+			    </button>
+			  </div>
+			</div>
+
+
+			<div class="tabs_holder">
+
+				<div class="tab tab-details">
+					
+					<div class="trip_timing">
+						<div class="trip_timing-date">
+							{{display_trip_list_date trip.start_time "long"}}
+						</div>
+						<div class="trip_timing-times">
+							{{display_trip_list_time trip.start_time}} - {{display_trip_list_time trip.end_time}}
+						</div>
+					</div>
+
+					<div class="view_trip_matrix">
+						<div class="matrix_item clearfix">
+							<div class="half">
+								{{toFixedOrNone trip.miles 1}}
+							</div>
+							<div class="half">
+								Miles
+							</div>
+						</div>
+						<!--
+						<div class="matrix_item clearfix">
+							<div class="half">
+								${{toFixed trip.total_cost 2}}
+							</div>
+							<div class="half">
+								Cost
+							</div>
+						</div>
+						-->
+						<div class="matrix_item clearfix">
+							<div class="half">
+								{{seconds_to_drive_time trip.drive_time}}
+							</div>
+							<div class="half">
+								Drive Time
+							</div>
+						</div>
+						<div class="matrix_item clearfix">
+							<div class="half">
+								{{display_drive_time trip}}
+							</div>
+							<div class="half">
+								Away Time
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="tab tab-map nodisplay">
+					<div class="trip_map_holder">
+					</div>
+					<p class="map_note">
+						Some map markers <i>may</i> be hidden if they overlap
+					</p>
+				</div>
+
+				<div class="tab tab-legs nodisplay">
+					<div class="trip_leg_holder">
+					</div>
+				</div>
+
+				<div class="tab tab-costs nodisplay">
+					<div class="costs_holder">
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+
+</div>

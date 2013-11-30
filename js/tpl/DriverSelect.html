@@ -1,0 +1,60 @@
+<div class="topcoat-navigation-bar">
+	<div class="topcoat-navigation-bar__item left quarter">
+		<span class="topcoat-icon-button--quiet back-button" href="#">
+		  <span class="topcoat-icon topcoat-icon--back"></span>
+		</span>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+		<h1 class="topcoat-navigation-bar__title">{{options.title}}</h1>
+	</div>
+	<div class="topcoat-navigation-bar__item right quarter">
+        <span class="topcoat-icon-button--quiet save-button">
+			<i class="icon ion-ios7-checkmark-outline"></i>
+		</span>
+	</div>
+</div>
+
+<div class="topcoat-navigation-bar footer-bar driver-select-footer">
+	<div class="clear_at_top text-center">
+		<span class="topcoat-button topcoat-button--cta">Clear</span>
+	</div>
+</div>
+
+<div class="topcoat-list__container scroller normal-scroller">
+
+
+	<div class="driver_select_holder">
+
+		<div class="empty-list-header title-item">
+			People in Car
+		</div>
+
+		<ul class="topcoat-list list keys-left-list">
+
+		</ul>
+
+		<div class="empty-list-header title-item">
+			People to Choose From
+		</div>
+
+		<ul class="topcoat-list list driver-select-list">
+			{{#each drivers}}
+				<li class="topcoat-list__item driver-item" data-id="{{_id}}">
+					<span class="quicklink" href="#driver/{{id}}">
+						<span class="driver_name ellipsis">{{name}}</span>
+					</span>
+				</li>
+			{{/each}}
+		</ul>
+
+		{{#if options.back_to_default_hint}}
+			<div class="driver-select-prompt">
+
+				<strong>Reminder:</strong>After one trip the Default Driver will be re-enabled
+
+			</div>
+		{{/if}}
+
+	</div>
+
+</div>

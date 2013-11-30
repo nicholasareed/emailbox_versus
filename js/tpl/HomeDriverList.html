@@ -1,0 +1,27 @@
+	
+<div class="h1_holder full center">
+	<h1 class="text-center">Drivers</h1>
+	<span class="topcoat-icon-button--quiet" href="#" style="float:left;">
+      <span class="topcoat-icon topcoat-icon--back"></span>
+    </span>
+
+</div>
+
+{{#if drivers}}
+
+	<ul class="topcoat-list side-nav__list">
+
+		{{#each drivers}}
+	        <li class="topcoat-list__item side-nav__list__item driver-item quicklink" href="#driver/{{_id}}">
+	            <span class="side-nav__button car-item" data-id="{{_id}}">{{name}}</span>
+	        </li>
+	    {{/each}}
+    </ul>
+
+{{else}}
+	
+	<div class="default-empty-list">
+		No drivers loaded	
+	</div>
+
+{{/if}}

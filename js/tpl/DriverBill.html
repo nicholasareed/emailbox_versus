@@ -1,0 +1,72 @@
+
+<!-- A list of all the bills for a user -->
+
+<h1 class="tab_title_default text-center"><span>Bills</h1>
+
+<div class="driver-bills-list-holder">
+
+	<!--
+	<div class="title_small">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tap a Bill to Pay
+	</div>	
+	-->
+
+	<div class="list">
+
+		{{#each bills}}
+
+
+			<div class="driver-cost-list-item fake-li" data-bill-id="{{_id}}" data-paid="{{#if paid}}1{{/if}}">
+					
+				<div class="toggler clearfix">
+					<div class="left third time-holder">
+						<!--<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{driver_id}}"  data-replace-field="name">&nbsp;</span>-->
+
+						<p>
+							{{display_trip_list_date trip_start_time}}
+						</p>
+						<p>
+							{{display_trip_list_time trip_start_time}}
+						</p>
+
+					</div>
+
+					<div class="third text-center person-fund-amount">
+						<span>${{toFixed amount 2}}</span>
+					</div>
+
+					<div class="third text-center paid-third">
+						<span class="icon ion-card card-paid-{{paid}} paid-status {{#if paid}}paid{{/if}}"></span>
+					</div>
+				</div>
+				<div class="toggler-showhide quick-separator clearfix">
+
+					<div class="half text-center">
+						<span class="topcoat-button topcoat-button--cta quicklink" href="trip/{{trip_id}}">View Trip</span>
+					</div>
+					<div class="half text-center">
+						{{#if paid}}
+							<span class="topcoat-button topcoat-button--cta disabled">Unpay</span>
+						{{else}}
+							<span class="topcoat-button topcoat-button--success pay-bill">Mark as Paid</span>
+						{{/if}}
+					</div>
+
+				</div>
+
+			</div>
+
+		{{/each}}
+
+	</div>
+
+	<!--
+	<div class="send_bill text-center">
+		<span class="topcoat-button topcoat-button--cta request-button">
+			Mark All as Paid
+		</span>
+	</div>
+	-->
+
+
+</div>

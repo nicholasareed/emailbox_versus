@@ -1,0 +1,344 @@
+<div class="topcoat-navigation-bar with-slide-nav">
+
+    <div class="topcoat-navigation-bar__item left half">
+        <span class="topcoat-icon-button--quiet car-list-button">
+          <span class="topcoat-icon topcoat-icon--back"></span> Cars
+        </span>
+    </div>
+    <div class="topcoat-navigation-bar__item right half">
+        <span class="topcoat-icon-button--quiet driver-view-button">
+          Driver <span class="topcoat-icon topcoat-icon--next"></span>
+        </span>
+    </div>
+    <!--
+    <div class="topcoat-navigation-bar__item left half">
+        <h1 class="topcoat-navigation-bar__title car-view-button">Cars</h1>
+    </div>
+-->
+    <!--
+    <div class="topcoat-navigation-bar__item left half quicklink" href="settings">
+		<span class="topcoat-icon-button--quiet">
+    		<i class="icon ion-ios7-gear-outline" style="color: rgba(255,255,255,0.75);font-size:2rem;padding-top:10px;"></i>
+    	</span>
+    </div>
+    <div class="topcoat-navigation-bar__item right half">
+        <h1 class="topcoat-navigation-bar__title quicklink" href="trips/car/{{car._id}}">Trips</h1>
+    </div>
+	-->
+	<!--
+    <div class="topcoat-navigation-bar__item right half">
+        <h1 class="topcoat-navigation-bar__title driver-view-button">Driver</h1>
+    </div>
+-->
+</div>
+<nav class="side-nav">
+    <div class="topcoat-list__container side-nav__list__container car-list">
+        
+    </div>
+</nav>
+<!--
+<nav class="side-nav side-nav-right">
+    <div class="topcoat-list__container side-nav__list__container driver-list">
+        
+    </div>
+</nav>
+-->
+<div class="topcoat-list__container scroller main-content normal-scroller" style="background2: #85c3f2; background:white;">
+
+	{{#if car}}
+
+		<div class="home_top car_top">
+
+			<!-- <div class="three-quarters"> -->
+				<!-- Name of Vehicle -->
+				<h1 class="is_name text-center ellipsis">{{car.name}}</h1>
+
+				<div class="clearfix">
+					<div class="half">
+						<div class="quick_keys">
+							<div class="riders_title_small">Default Driver</div>
+							<i class="icon ion-key"></i><span data-replace-model="driver"  data-replace-id="{{car.riders.0._id}}"  data-replace-field="name">&nbsp;</span>
+							{{#compare_length car.riders ">=" 2}}
+							&nbsp; + &nbsp; {{length car.riders -1}}
+							{{/compare_length}}
+						</div>
+					</div>
+					<div class="half text-right quick-keys-link">
+						{{#if car.temp_riders}}
+							<div class="">
+								<div class="riders_title_small riders_title_standout">Next Ride</div>
+								<i class="icon ion-key"></i><span data-replace-model="driver"  data-replace-id="{{car.temp_riders.0._id}}" data-replace-field="name">&nbsp;</span>
+								{{#compare_length car.temp_riders ">=" 2}}
+								&nbsp; + &nbsp; {{length car.temp_riders -1}}
+								{{/compare_length}}
+							</div>
+						{{else}}
+							<span class="topcoat-button topcoat-button--cta">Share Car <span class="topcoat-icon topcoat-icon--next-gray"></span>
+						{{/if}}
+					</div>
+
+
+				</div>
+			<!-- </div> -->
+
+		</div>
+
+		<!--
+		<div class="quick_key_display">
+			<div class="">
+
+				<span>Keys:</span> <strong>Nick</strong>
+
+			</div>
+		</div>-->
+
+
+
+		<div class="normal-tab-button-bar clearfix">
+
+			<!-- Trips (single trip at first) -->
+			<div class="even-list-item quarter">
+				<button class="active" data-tab-target="tab-legs">
+					<i class="icon ion-pause"></i>
+				</button>
+			</div>
+			<!-- Notifications -->
+			<div class="even-list-item quarter">
+				<button class="" data-tab-target="tab-notifications">
+					<i class="icon ion-ios7-flag"></i>
+				</button>
+			</div>
+			<!-- Error Codes -->
+			<div class="even-list-item quarter">
+				<button class="" data-tab-target="tab-error-codes">
+					<i class="icon ion-alert-circled"></i>
+				</button>
+			</div>
+			<!-- Details/ Info -->
+			<div class="even-list-item quarter">
+				<button class="quicklink" data-tab-target="tab-details" href="#settings">
+					<i class="icon ion-gear-a"></i>
+				</button>
+			</div>
+		</div>
+
+
+		<div class="tabs_holder">
+
+			<!-- Trips a part of -->
+			<div class="tab tab-legs">
+				
+				<h1 class="tab_title_default text-center"><span>Latest</h1>
+
+				<div class="quick_running_status is-running-{{#if car.latest_data.running}}on{{else}}off{{/if}}">
+
+					<div class="text-holder clearfix">
+						<div class="three-quarters-oldoldold full">
+
+							<div class="indicator-toggle-holder toggle-text toggle-{{#if car.latest_data.running}}on{{else}}off{{/if}}">
+
+								<span class="indicator-toggle indicator-toggle-green2" data-show-on-class="on">
+									Driving
+								</span>
+								<span class="indicator-toggle indicator-toggle-red" data-show-on-class="off">
+									Stopped
+								</span>
+
+								<span class="location_city"> in <span class="city_name"></span></span>
+
+							</div>
+							<span class="distance_from_homex nodisplay">
+								
+							</span>
+							<div class="last_stopped_timestamp_ago">
+								
+								{{display_fromNow_lastRunning car}} 
+								<span class="distance_from_home nodisplay">
+									
+								</span>
+							</div>
+
+						</div>
+
+						<div class="quarter nodisplay">
+
+							<!-- Running / Problems -->
+							<div class="error-code-holder clearfix text-center quicklink" href="errors/{{car._id}}" >
+								
+								<div class="indicator-toggle-holder toggle-buttons toggle-off toggle-error-codes">
+									<div class="indicator-toggle" data-show-on-class="off">
+										!
+									</div>
+									<div class="indicator-toggle indicator-toggle-red ellipsis" data-show-on-class="on">
+										!
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Last GPS Position -->
+					<div class="last_gps_pos clearfix">
+						<div class="map_holder">
+							<img src="http://maps.googleapis.com/maps/api/staticmap?center={{car.latest_data.lastWaypoint.latitude}},{{car.latest_data.lastWaypoint.longitude}}&zoom=18&size=400x200&markers=color:blue%7C{{car.latest_data.lastWaypoint.latitude}},{{car.latest_data.lastWaypoint.longitude}}&sensor=false" />
+						</div>
+					</div>
+
+				</div>
+
+
+				<!-- Last Trip (or can be In Progress?...) -->
+				<div class="last_trip">
+				</div>
+
+				<br />
+
+				<div class="clearfix">
+
+					<div class="quarter text-center">
+						<span class="topcoat-button topcoat-button--cta button-refresh"><i class="icon ion-ios7-refresh-outline"></i>
+					</div>
+
+					<div class="three-quarters text-center">
+						<span class="topcoat-button topcoat-button--cta quicklink" href="trips/car/{{car._id}}">View All Trips <span class="topcoat-icon topcoat-icon--next-gray"></span>
+					</div>
+
+				</div>
+
+				<br />
+
+			</div>
+
+			<!-- Details/ Info -->
+			<div class="tab tab-details nodisplay">
+				
+
+			</div>
+
+			<!-- Notifications -->
+			<div class="tab tab-notifications nodisplay">
+				
+				<h1 class="tab_title_default text-center"><span>Notifications</h1>
+
+				<div class="notifications_list">
+
+					<div class="notification-item clearfix">
+
+							<div class="half noti-name">
+								<span class="ellipsis2">
+									On Next Trip End
+								</span>
+							</div>
+							<div class="half text-right">
+								<label class="topcoat-switch">
+									<input type="checkbox" class="topcoat-switch__input">
+									<div class="topcoat-switch__toggle"></div>
+								</label>
+							</div>
+
+	                </div>
+
+					<div class="notification-item clearfix">
+
+							<div class="half noti-name">
+								<span class="ellipsis2">
+									When Car Starts
+								</span>
+							</div>
+							<div class="half text-right">
+								<label class="topcoat-switch">
+									<input type="checkbox" class="topcoat-switch__input">
+									<div class="topcoat-switch__toggle"></div>
+								</label>
+							</div>
+
+	                </div>
+
+					<div class="notification-item clearfix">
+
+							<div class="half noti-name">
+								<span class="ellipsis2">
+									Speed exceeds <strong>70</strong> mph
+								</span>
+							</div>
+							<div class="half text-right">
+								<label class="topcoat-switch">
+									<input type="checkbox" class="topcoat-switch__input">
+									<div class="topcoat-switch__toggle"></div>
+								</label>
+							</div>
+
+	                </div>
+
+					<div class="notification-item clearfix">
+
+							<div class="half noti-name">
+								<span class="ellipsis2">
+									More than <strong>100</strong> miles from Home
+								</span>
+							</div>
+							<div class="half text-right">
+								<label class="topcoat-switch">
+									<input type="checkbox" class="topcoat-switch__input">
+									<div class="topcoat-switch__toggle"></div>
+								</label>
+							</div>
+
+	                </div>
+
+                </div>
+
+                <div class="text-center">
+                	<span class="topcoat-button topcoat-button--cta custom-notification">Add Custom Notification</span>
+                </div>
+
+                <br />
+
+
+			</div>
+
+			<!-- Error codes (paid, etc.) -->
+			<div class="tab tab-error-codes nodisplay">
+
+				<h1 class="tab_title_default text-center"><span>Error Codes</h1>
+
+				<div class="default-empty-list">
+					No error codes to display! 
+				</div>
+			</div>
+
+		</div>
+
+		
+
+		<!-- Running / Problems -->
+		<!--
+		<div class="error-code-holder clearfix text-center quicklink" href="errors" >
+			
+			<div class="indicator-toggle-holder toggle-buttons toggle-off toggle-error-codes">
+				<div class="indicator-toggle" data-show-on-class="off">
+					NO ERROR CODES
+				</div>
+				<div class="indicator-toggle indicator-toggle-red ellipsis" data-show-on-class="on">
+					ERROR CODES!
+				</div>
+			</div>
+
+		</div>
+		-->
+		<!--
+		<div class="quick_directions clearfix">
+			<div class="half car-list-button">
+				<i class="icon ion-ios7-arrow-thin-left"></i> Cars
+			</div>
+			<div class="half driver-view-button">
+				Driver <i class="icon ion-ios7-arrow-thin-right"></i>
+			</div>
+		</div>
+		-->
+
+	{{/if}}
+
+
+</div>

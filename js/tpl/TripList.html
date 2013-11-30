@@ -1,0 +1,215 @@
+<div class="topcoat-navigation-bar">
+	<div class="topcoat-navigation-bar__item left quarter">
+		<span class="topcoat-icon-button--quiet back-button" href="#">
+		  <span class="topcoat-icon topcoat-icon--back"></span>
+		</span>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+		<!--<h1 class="topcoat-navigation-bar__title">&nbsp;</h1>-->
+		<h1 class="topcoat-navigation-bar__title ellipsis" data-replace-model="car"  data-replace-id="{{model_id}}"  data-replace-field="name"></h1>
+	</div>
+    <div class="topcoat-navigation-bar__item right quarter quick-refresh">
+		<span class="topcoat-icon-button--quiet">
+    		<i class="icon ion-ios7-refresh-outline"></i>
+    	</span>
+    </div>
+</div>
+
+<div class="topcoat-navigation-bar footer-bar summary-footer">
+	<div class="topcoat-navigation-bar__item left half">
+		<h1 class="topcoat-navigation-bar__title">Summary:</h1>
+	</div>
+	<div class="topcoat-navigation-bar__item right half">
+		<h1 class="topcoat-navigation-bar__title text-right"><span class="measure"></span> <span class="measure-type">mi<span></h1>
+	</div>
+</div>
+
+<div class="topcoat-list__container scroller normal-scroller" style="padding-bottom:3.375rem;">
+
+
+	<!-- TimePeriod / Driver(s) / DisplayFigure(miles,etc) -->
+	<!--
+	<div class="filter_holder clearfix">
+
+		<div class="left_item">
+			<div class="ellipsis">1 Week</div>
+		</div>
+		<div class="middle_item">
+			<div class="ellipsis">All Drivers</div>
+		</div>
+		<div class="right_item">
+			<div class="ellipsis">Miles</div>
+		</div>
+
+	</div>
+	-->
+
+	<!-- List of items  -->
+	<ul class="topcoat-list list trips">
+		
+		{{#each trips}}
+			<li class="topcoat-list__item quicklink" href="#trip/{{_id}}">
+				<div class="trip_short clearfix">
+					<div class="left_item ongoing_enableMEPLEASE">
+						<p>
+							{{display_trip_list_date start_time}}
+						</p>
+						<p>
+							{{display_trip_list_time start_time}}
+						</p>
+					</div>
+					<div class="middle_item">
+						<p class="ellipsis" data-replace-model="driver"  data-replace-id="{{driver_id}}"  data-replace-field="name">
+							&nbsp;
+						</p>
+						{{#compare_size riders ">=" 2}}
+							<p>
+								<i class="icon ion-plus"></i> {{length riders -1}}
+							</p>
+						{{/compare_size}}
+					</div>
+					<div class="right_item">
+						<span class="display_number">{{toFixedOrNone miles 1}}</span><span class="display_abbrev">mi</span>
+						&nbsp;
+						<span class="icon ion-card card-billed-{{billed}} card-paid-{{paid}}"></span>
+					</div>
+				</div>
+			</li>
+		{{/each}}
+	
+	</ul>
+
+	<!-- List of items  -->
+	<ul class="topcoat-list list time_list nodisplay">
+	
+		<li class="topcoat-list__item">
+			
+			<button class="topcoat-icon-button" style="display:inline-block;">
+				<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+			</button>
+			&nbsp;&nbsp;
+			<p style="display:inline-block;">
+				1 Week
+			</p>
+			<span class="chevron"></span>
+		
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					2 Weeks
+				</p>
+				<span class="chevron"></span>
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					1 Month
+				</p>
+				<span class="chevron"></span>
+		</li>
+	
+	</ul>
+
+
+	<!-- Feature Switcher  -->
+	<ul class="topcoat-list list feature_list nodisplay">
+	
+		<li class="topcoat-list__item">
+			
+			<button class="topcoat-icon-button" style="display:inline-block;">
+				<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+			</button>
+			&nbsp;&nbsp;
+			<p style="display:inline-block;">
+				Miles
+			</p>
+			<span class="chevron"></span>
+		
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					Cost
+				</p>
+				<span class="chevron"></span>
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					Drive Time
+				</p>
+				<span class="chevron"></span>
+		</li>
+	
+	</ul>
+
+
+	<!-- Driver Switcher  -->
+	<ul class="topcoat-list list driver_list_switch nodisplay">
+	
+		<li class="topcoat-list__item">
+			
+			<button class="topcoat-icon-button" style="display:inline-block;">
+				<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+			</button>
+			&nbsp;&nbsp;
+			<p style="display:inline-block;">
+				All Drivers
+			</p>
+			<span class="chevron"></span>
+		
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					Me - Work
+				</p>
+				<span class="chevron"></span>
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					Me - Personal
+				</p>
+				<span class="chevron"></span>
+		</li>
+
+		<li class="topcoat-list__item">
+				<button class="topcoat-icon-button" style="display:inline-block;" disabled>
+					<span class="topcoat-icon" style="background-color:#A5A7A7;"></span>
+				</button>
+				&nbsp;&nbsp;
+				<p style="display:inline-block;">
+					Girlfriend
+				</p>
+				<span class="chevron"></span>
+		</li>
+	
+	</ul>
+
+</div>

@@ -1,0 +1,103 @@
+
+<!-- Costs -->
+
+<h1 class="legs_title"><span style="color:rgb(246,132,132);">${{toFixed trips.total_cost 2}}</span> Total Cost</h1>
+
+<div class="driver-cost-list-holder">
+
+	<table class="trip_cost_list" style="width:100%;" cellspacing="0" cellpadding="0">
+
+		<tr>
+			<td colspan="3" class="nodisplay">
+				<div class="trip_cost_totals clearfix">
+					<div class="half text-right">
+						Total Cost:
+					</div>
+
+					<div class="half text-left">
+						{{trips.total_cost}}
+					</div>
+				</div>
+			</td>
+
+		</tr>
+
+
+		{{#each drivers_in_trip}}
+
+
+			<tr class="driver-cost-list-item" data-driver-id="{{_id}}">
+
+				<td width="33.33%" class="left third driver-holder">
+					<span class="ellipsis" data-replace-model="driver"  data-replace-id="{{_id}}"  data-replace-field="name">&nbsp;</span>
+				</td>
+
+				<td width="33.33%" class="third text-center person-fund-amount">
+					<span>{{amount}}</span>
+				</td>
+
+				<td width="33.33%" class="third text-center">
+					<span class="modify-funds">
+						<i class="icon ion-ios7-circle-filled"></i>
+					</span>
+				</td>
+
+			</tr>
+
+
+			<tr class="change-amount nodisplay">
+
+				<td colspan="3">
+
+					<table class="change-amount-table" cellspacing="0" cellpadding="0" display-amount="{{amount}}">
+
+						<tr>
+							<td class="single-item" display-amount="even">
+								<div>
+									Even
+								</div>
+							</td>
+							<td class="" display-amount="all">
+								<div>
+									<div>1</div><div>1</div>
+								</div>
+							</td>
+							<td class="" display-amount="1/2">
+								<div>
+									<div>1</div><div>2</div>
+								</div>
+							</td>
+							<td class="" display-amount="1/3">
+								<div>
+									<div>1</div><div>3</div>
+								</div>
+							</td>
+							<td class="" display-amount="1/4">
+								<div>
+									<div>1</div><div>4</div>
+								</div>
+							</td>
+							<td class="single-item" display-amount="0">
+								<div>
+									0
+								</div>
+							</td>
+						</tr>
+
+					</table>
+
+				</td>
+
+			</tr>
+
+		{{/each}}
+
+	</table>
+
+	<div class="send_bill text-center">
+		<span class="topcoat-button topcoat-button--cta request-button">
+			Request Funds
+		</span>
+	</div>
+
+</div>

@@ -1,0 +1,74 @@
+
+<!-- Costs -->
+
+<div class="trip_cost_list">
+
+	<div class="clearfix driver-cost-list-title">
+
+
+		<div class="text-right half">
+			Total Cost:
+		</div>
+
+		<div class="left half">
+			<span>$22.40</span>
+		</div>
+
+	</div>
+
+
+	{{#each drivers_in_trip}}
+
+
+		<div class="clearfix driver-cost-list">
+			
+			<div class="clearfix">
+				<div class="left third driver-holder">
+					<span data-replace-model="driver"  data-replace-id="{{this}}"  data-replace-field="name">&nbsp;</span>
+				</div>
+
+				<div class="third text-center person-fund-amount">
+					<span>1/2</span>
+				</div>
+
+				<div class="third text-center">
+					<span class="modify-funds">
+						<i class="icon ion-ios7-circle-filled"></i>
+					</span>
+				</div>
+			</div>
+
+			<ul class="clearfix change-amount nodisplay">
+
+				<li class="single-item" data-amount="even" display-amount="even">
+					Even
+				</li>
+				<li class="single-item" data-amount="0" display-amount="0">
+					<div>0</div>
+				</li>
+				<li class="" data-amount=".75" display-amount="3/4">
+					<div>3</div><div>4</div>
+				</li>
+				<li class="" data-amount=".5" display-amount="1/2">
+					<div>1</div><div>2</div>
+				</li>
+				<li class="" data-amount=".333333" display-amount="1/3">
+					<div>1</div><div>3</div>
+				</li>
+				<li class="" data-amount=".25" display-amount="1/4">
+					<div>1</div><div>4</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	{{/each}}
+
+	<div class="send_bill text-center">
+		<span class="topcoat-button">
+			Request Funds
+		</span>
+	</div>
+
+</div>

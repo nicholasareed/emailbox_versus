@@ -1,0 +1,34 @@
+	
+<div class="h1_holder full center">
+	<h1 class="text-center">Cars</h1>
+	<span class="topcoat-icon-button--quiet" href="#" style="float:right;">
+      <span class="topcoat-icon topcoat-icon--next"></span>
+    </span>
+
+</div>
+
+{{#if cars}}
+
+	<ul class="topcoat-list side-nav__list">
+
+		{{#each cars}}
+	        <li class="topcoat-list__item side-nav__list__item">
+	            <div class="side-nav__button car-item" data-id="{{_id}}">
+	            	{{name}}
+	            	<p style="margin: 0px;">
+						{{#if latest_data.running}}
+							<span class="topcoat-notification topcoat-notification-green">running</span>
+						{{/if}}
+					</p>
+	            </div>
+	        </li>
+	    {{/each}}
+    </ul>
+
+{{else}}
+	
+	<div class="default-empty-list">
+		No cars loaded	
+	</div>
+
+{{/if}}

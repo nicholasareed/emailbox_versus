@@ -1,0 +1,130 @@
+<div class="topcoat-navigation-bar with-slide-nav">
+
+    <div class="topcoat-navigation-bar__item left half">
+        <span class="topcoat-icon-button--quiet car-view-button">
+          <span class="topcoat-icon topcoat-icon--back"></span> Car
+        </span>
+    </div>
+    <div class="topcoat-navigation-bar__item right half">
+        <span class="topcoat-icon-button--quiet driver-view-button">
+          Drivers <span class="topcoat-icon topcoat-icon--next"></span>
+        </span>
+    </div>
+
+	<!--
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+	<div class="topcoat-navigation-bar__item three-quarters">
+		<h1 class="topcoat-navigation-bar__title ellipsis">
+	</div>
+-->
+</div>
+<nav class="side-nav side-nav-right">
+    <div class="topcoat-list__container side-nav__list__container driver-list">
+        
+    </div>
+</nav>
+<div class="topcoat-list__container scroller main-content normal-scroller">
+
+
+	<div class="home_top driver_top clearfix">
+
+
+		<div class="two-thirds">
+			<h1 class="is_name ellipsis">{{driver.name}}&nbsp;</h1>
+		</div>
+	
+		<div class="third text-right">
+			<span class="topcoat-button topcoat-button--cta button-refresh"><i class="icon ion-ios7-refresh-outline"></i> Refresh</span>
+		</div>
+
+
+	</div>
+
+	<div class="view_trip view_driver">
+		<div class="trip_in_progress">
+
+			<div class="normal-tab-button-bar clearfix">
+
+				<!-- Trips a part of -->
+				<div class="even-list-item quarter">
+					<button class="active" data-tab-target="tab-legs">
+						<i class="icon ion-pause"></i>
+					</button>
+				</div>
+				<!-- Details/ Info -->
+				<div class="even-list-item quarter">
+					<button class="" data-tab-target="tab-details">
+						<i class="icon ion-ios7-information-outline"></i>
+					</button>
+				</div>
+				<!-- Notifications -->
+				<div class="even-list-item quarter">
+					<button class="" data-tab-target="tab-notifications">
+						<i class="icon ion-ios7-flag"></i>
+					</button>
+				</div>
+				<!-- Bills (paid, etc.) -->
+				<div class="even-list-item quarter">
+					<button class="" data-tab-target="tab-costs">
+						<i class="icon ion-card"></i>
+					</button>
+				</div>
+			</div>
+
+
+			<div class="tabs_holder">
+
+				<!-- Trips a part of -->
+				<div class="tab tab-legs">
+					<div class="default-empty-list">
+						Trips (if you had them) would be here!
+					</div>
+				</div>
+
+				<!-- Details/ Info -->
+				<div class="tab tab-details nodisplay">
+
+					<h1 class="tab_title_default text-center"><span>Info</h1>
+
+					<div class="default-empty-list">
+						
+						<div class="top_email_holder">
+							<div class="email_button">
+								<span class="label">Email</span><span class="email">{{#if driver.email}} {{driver.email}} {{else}} NONE {{/if}}</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Notifications -->
+				<div class="tab tab-notifications nodisplay">
+
+					<h1 class="tab_title_default text-center"><span>Notifications</h1>
+
+					<div class="default-empty-list">
+						No driver notifications
+					</div>
+				</div>
+
+				<!-- Bills (paid, etc.) -->
+				<div class="tab tab-costs nodisplay">
+					<div class="default-empty-list">
+						Bills listed here
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+
+</div>

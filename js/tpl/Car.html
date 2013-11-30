@@ -1,0 +1,100 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+	<div class="topcoat-navigation-bar__item three-quarters">
+		<h1 class="topcoat-navigation-bar__title ellipsis large-header-title">Vehicle Info</h1>
+	</div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+	<div class="view_trip">
+		<div class="trip_in_progress">
+
+			<div class="driver_and_car clearfix">
+				<div class="third text-center">
+					<div class="image" style="background-image: url('img/me_eating_chicken.jpg');">
+					</div>
+				</div>
+				<div class="two-thirds">
+					<h2 class="ellipsis">
+						{{car.name}}
+					</h2>
+
+					<p>
+						{{car.latest_data.mileage}} miles
+					</p>
+
+				</div>
+			</div>
+
+
+			<!-- Trip summary (time, trip in progress, etc.) -->
+			<div class="trip_overview clearfix">
+
+				<div class="half">
+
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-off text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Engine On
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							Engine Off
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="half">
+
+					<div class="indicator-toggle-holder toggle-buttons toggle-fuel-or-trip-progress toggle-on text-center">
+
+						<div class="indicator-toggle indicator-toggle-green text-center ellipsis" data-show-on-class="on">
+							Fueled Up
+						</div>
+						<div class="indicator-toggle text-center ellipsis" data-show-on-class="off">
+							No Fuel Up
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<br />
+
+			<!-- Last GPS Position -->
+			<div class="last_gps_pos clearfix">
+				<p>
+					Latest Position
+				</p>
+				<div class="map_holder">
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center={{car.latest_data.lastWaypoint.latitude}},{{car.latest_data.lastWaypoint.longitude}}&zoom=18&size=400x200&markers=color:blue%7C{{car.latest_data.lastWaypoint.latitude}},{{car.latest_data.lastWaypoint.longitude}}&sensor=false" />
+				</div>
+			</div>
+
+			<!-- Last GPS Position -->
+			<div class="last_gps_pos clearfix">
+				<p>
+					Home Location
+				</p>
+				<div class="map_holder">
+					{{print car}}
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center={{car.home_gps.latitude}},{{car.latest_data.longitude}}&zoom=18&size=400x200&markers=color:blue%7C{{car.home_gps.latitude}},{{car.home_gps.longitude}}&sensor=false" />
+				</div>
+			</div>
+			
+
+
+		</div>
+
+	</div>
+
+
+
+</div>

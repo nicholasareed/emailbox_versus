@@ -1,0 +1,29 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+	<div class="topcoat-navigation-bar__item three-quarters">
+		<h1 class="topcoat-navigation-bar__title ellipsis">Driver Details</h1>
+	</div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+    {{#if driver}}
+        <form id="form" class="form login-form" action="#" method="get">
+            <ul>
+                <li class="js-hide-label">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Name" id="name" value="{{driver.name}}" name="name" class="topcoat-text-input"/>
+                </li>
+                <li class="js-hide-label">
+                    <label for="email">Email</label>
+                    <input type="text" placeholder="Email" id="email" value="{{driver.email}}" name="email" class="topcoat-text-input"/>
+                </li>
+            </ul>
+            <input type="submit" value="Save Driver" id="submit" class="topcoat-button topcoat-button--cta submit-button" />
+        </form>
+    {{/if}}
+
+</div>

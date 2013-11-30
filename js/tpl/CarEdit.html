@@ -1,0 +1,60 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+	<div class="topcoat-navigation-bar__item three-quarters">
+		<h1 class="topcoat-navigation-bar__title ellipsis">Vehicle Info</h1>
+	</div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+	
+    {{#if car}}
+        <form id="form" class="form login-form" action="#" method="get">
+            <ul>
+                <li class="js-hide-label">
+                    <label for="name">Car Name</label>
+                    <input type="text" placeholder="Car Name" id="name" value="{{car.name}}" name="name" class="topcoat-text-input"/>
+                </li>
+                <li class="js-hide-label">
+                    <label for="condition">Vehicle Condition</label>
+                    <select class="topcoat-button--large select-button" name="condition" value="{{car.condition}}">
+    	                <option value="3">Like New</option>
+    	                <option value="2">Fair</option>
+    	                <option value="1">Rough</option>
+    	            </select>
+                </li>
+                <li class="js-hide-label">
+                    <label for="tank_size">Gas Tank Size</label>
+                    <input type="text" placeholder="Gas Tank Size" id="tank_size" name="tank_size" class="topcoat-text-input" value="{{car.tank_size}}"/>
+                </li>
+                <li class="js-hide-label">
+                    <label for="fuel_type">Type of Fuel</label>
+                    <select class="topcoat-button--large select-button" name="fuel_type" value="{{car.fuel_type}}">
+    	                <option value="reg">Regular</option>
+    	                <option value="mid">Super</option>
+    	                <option value="pre">Premium</option>
+    	                <option value="diesel">Diesel</option>
+    	            </select>
+                </li>
+                <li class="js-hide-label">
+                    <label for="mpg">Miles Per Gallon</label>
+                    <input type="text" placeholder="Miles Per Gallon" id="mpg" name="mpg" class="topcoat-text-input" value="{{car.mpg}}" />
+                </li>
+            </ul>
+            <input type="submit" value="Save Car" id="submit" class="topcoat-button topcoat-button--cta submit-button" />
+        </form>
+    {{/if}}
+
+
+</div>
+
+<!--
+name
+miles per gallon (highway/city)
+tank size (gallons / liters)
+type of fuel (reg, mid, pre, diesel)
+condition (kbb) (like new, good, rough) (1,2,3)
+-->

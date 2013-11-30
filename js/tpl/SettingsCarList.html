@@ -1,0 +1,41 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <span class="topcoat-icon-button--quiet back-button" href="#">
+          <span class="topcoat-icon topcoat-icon--back"></span>
+        </span>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Vehicles</h1>
+    </div>
+</div>
+<div class="topcoat-list__container scroller normal-scroller">
+
+	<!-- List of items  -->
+	<ul class="topcoat-list list error-codes-list">
+	
+		{{#each cars}}
+			<li class="topcoat-list__item quicklink" href="#car/edit/{{_id}}">
+				
+				<p class="car-list-item">
+					{{name}}
+				</p>
+				<p>
+					{{#if latest_data.running}}
+						<span class="topcoat-notification">running</span>
+					{{/if}}
+				</p>
+				<span class="chevron"></span>
+			
+			</li>
+		{{/each}}
+	
+	</ul>
+
+
+	{{#compare_length cars "==" 0}}
+		<div class="default-empty-list">
+			No vehicles to show!
+		</div>
+	{{/compare_length}}
+
+</div>

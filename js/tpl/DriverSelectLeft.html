@@ -1,0 +1,38 @@
+
+{{#each people}}
+	
+	{{#if @index}}
+		<li class="topcoat-list__item driver-item-chosen" data-id="{{_id}}">
+			<span>
+				<span class="driver_name ellipsis"><span class="type">Rider</span>{{name}}</span>
+			</span>
+		</li>
+	{{else}}
+		<li class="topcoat-list__item driver-item-chosen item-is-driver" data-id="{{_id}}">
+			<span>
+				<span class="driver_name ellipsis"><span class="type">Driver</span>{{name}}</span>
+			</span>
+		</li>
+	{{/if}}
+
+{{/each}}
+
+<!-- Do one more (driver or pasenger?) -->
+{{#if people}}
+
+	<li class="topcoat-list__item driver-item-chosen empty-item">
+		<span class="empty-item-blink">
+			<span class="driver_name ellipsis"><span class="type">Rider</span> &lsaquo; select &rsaquo; </span>
+		</span>
+	</li>
+
+{{else}}
+
+	<li class="topcoat-list__item driver-item-chosen empty-item">
+		<span class="empty-item-blink">
+			<span class="driver_name ellipsis"><span class="type">Driver</span>Tap a Rider's Name (below)</span>
+		</span>
+	</li>
+
+{{/if}}
+

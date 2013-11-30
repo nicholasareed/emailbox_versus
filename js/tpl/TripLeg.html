@@ -1,0 +1,59 @@
+
+<!-- Legs -->
+<h1 class="legs_title"><span>{{size trips}}</span> Legs in Trip</h1>
+
+<div class="trip_leg_list">
+
+	{{#each trips}}
+		<div class="trip_leg">
+			<div class="leg_quick clearfix">
+				<div class="leg_num third">Leg {{plusone @index}}</div>
+				<div class="leg_timing two-thirds">
+					{{display_trip_list_time start_time}} - {{display_trip_list_time end_time}}
+				</div>
+			</div>
+			<div class="leg_matrix">
+
+				<div class="matrix_item clearfix">
+					<div class="half">
+						{{toFixedOrNone miles 1}}
+					</div>
+					<div class="half">
+						Miles
+					</div>
+				</div>
+				<!--
+				<div class="matrix_item clearfix">
+					<div class="half">
+						${{toFixed total_cost 2}}
+					</div>
+					<div class="half">
+						Cost
+					</div>
+				</div>
+				-->
+				<div class="matrix_item clearfix">
+					<div class="half">
+						{{display_drive_time this}}
+					</div>
+					<div class="half">
+						Drive Time
+					</div>
+				</div>
+
+			</div>
+
+			<div class="leg_view_map_holder">
+				<div class="leg_view_map_button_holder">
+					<button class="topcoat-button view_leg_map">View Map</button>
+				</div>
+				<div class="leg_map nodisplay">
+					<img src="{{getGoogleMapsStaticUrlForTripLeg this @index ../mapWidth}}" />
+				</div>
+			</div>
+
+		</div>
+
+	{{/each}}
+
+</div>
