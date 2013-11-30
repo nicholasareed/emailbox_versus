@@ -43,7 +43,7 @@ define(function (require) {
                         }
                     },
                     success: function(code, data, msg){
-                        that.remoteCountVal = data + 25;
+                        that.remoteCountVal = data;
                         that.trigger('updateRemoteCount');
                     }
 
