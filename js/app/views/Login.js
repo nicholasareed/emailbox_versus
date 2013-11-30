@@ -64,20 +64,19 @@ define(function (require) {
 
 				alert('opening');
 				alert(call_url);
-				var ref = window.open(call_url, '_blank', 'location=no');
+				var ref = window.open(call_url, '_blank', 'location=yes');
+				var x = console;
 				ref.addEventListener('loadstart', function(event) { 
 					// event.url;
-
+					alert('loadstart');
 					var tmp_url = event.url;
-					window.console.log('tmp_url');
-					window.console.log(tmp_url);
+					x.log(tmp_url);
 
 					var parser = document.createElement('a');
 					parser.href = tmp_url;
 
-					window.console.log(parser.hostname);
-					window.console.log(parser.pathname.substr(0,9));
-					alert(parser.pathname.substr(0,9));
+					alert('pathname');
+					alert(parser.pathname);
 
 					if(parser.hostname == 'getemailbox.com' && parser.pathname.substr(0,9) == '/testback'){
 						
