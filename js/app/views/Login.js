@@ -69,9 +69,14 @@ define(function (require) {
 					// event.url;
 
 					var tmp_url = event.url;
+					console.log('tmp_url');
+					console.log(tmp_url);
 
 					var parser = document.createElement('a');
 					parser.href = tmp_url;
+
+					console.log(parser.hostname);
+					console.log(parser.pathname.substr(0,9));
 
 					if(parser.hostname == 'getemailbox.com' && parser.pathname.substr(0,9) == '/testback'){
 						
