@@ -62,25 +62,13 @@ define(function (require) {
 				var params = $.param(p);
 				var call_url = App.Credentials.base_login_url + "/apps/authorize/?" + params;
 
-				alert('call_url');
-				alert(call_url);
-				var ref = window.open(call_url, '_blank', 'location=yes');
-				ref.addEventListener('loadstop', function(event) { 
-					alert('loadstop');
-				});
-				ref.addEventListener('loaderror', function(event) { 
-					alert('loaderror');
-				});
+				var ref = window.open(call_url, '_blank', 'location=no');
 				ref.addEventListener('loadstart', function(event) { 
 					// event.url;
-					alert('loadstart');
 					var tmp_url = event.url;
 
 					var parser = document.createElement('a');
 					parser.href = tmp_url;
-
-					alert('pathname');
-					alert(parser.pathname);
 
 					if(parser.hostname == 'getemailbox.com' && parser.pathname.substr(0,9) == '/testback'){
 						
@@ -91,7 +79,6 @@ define(function (require) {
 
 						// url-decode
 						// alert(tmp_url);
-						alert('found it');
 						var url = decodeURIComponent(tmp_url);
 						// alert(url);
 
@@ -130,7 +117,6 @@ define(function (require) {
 
 									// // Reload page, back to #home
 									// window.location = [location.protocol, '//', location.host, location.pathname].join('');
-									alert('loading');
 									$('body').html('Loading');
 
 									// Reload page, back to #home
