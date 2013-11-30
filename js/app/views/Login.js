@@ -145,7 +145,7 @@ define(function (require) {
 				});
 				// ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
 				// ref.addEventListener('loaderror', function(event) { console.error('Uh Oh, encountered an error: ' + event.message); });
-				ref.addEventListener('exit', function(event) { alert('exit1');alert(event.type); });
+				// ref.addEventListener('exit', function(event) { alert('exit1');alert(event.type); });
 
 			} else {
 
