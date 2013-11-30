@@ -62,11 +62,10 @@ define(function (require) {
 				var params = $.param(p);
 				var call_url = App.Credentials.base_login_url + "/apps/authorize/?" + params;
 
-				alert('opening');
+				alert('call_url');
 				alert(call_url);
 				var ref = window.open(call_url, '_blank', 'location=yes');
-				var x = console;
-				ref.addEventListener('loadstart', function(event) { 
+				ref.addEventListener('loadstop', function(event) { 
 					alert('loadstop');
 				});
 				ref.addEventListener('loaderror', function(event) { 
@@ -76,7 +75,6 @@ define(function (require) {
 					// event.url;
 					alert('loadstart');
 					var tmp_url = event.url;
-					x.log(tmp_url);
 
 					var parser = document.createElement('a');
 					parser.href = tmp_url;
@@ -160,8 +158,8 @@ define(function (require) {
 
 				});
 				// ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-				ref.addEventListener('loaderror', function(event) { console.error('Uh Oh, encountered an error: ' + event.message); });
-				// ref.addEventListener('exit', function(event) { alert('exit1');alert(event.type); });
+				// ref.addEventListener('loaderror', function(event) { console.error('Uh Oh, encountered an error: ' + event.message); });
+				ref.addEventListener('exit', function(event) { alert('exit1');alert(event.type); });
 
 			} else {
 
