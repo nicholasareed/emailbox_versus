@@ -33,7 +33,9 @@ define(function (require) {
             // Listen for new emails to change the board
             Api.Event.on({
                 event: ['Email.new','Email.send']
-            },that.collection.remoteCount);
+            },function(event){
+                that.collection.remoteCount();
+            });
 
             this.render(true);
 
