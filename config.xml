@@ -17,7 +17,6 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
 
-
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.Device" />
     </feature>
@@ -30,6 +29,7 @@
     </feature>
 
     <icon src="icon.png" />
+    <preference name="prerendered-icon" value="true" />
 
 
 </widget>
